@@ -1,0 +1,103 @@
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+const SettingsScreen = () => (
+  <View style={styles.container}>
+    <TouchableOpacity style={styles.card}>
+      <Text style={styles.label}>Profil Pengguna</Text>
+      <Text style={styles.value}>Operator Pos Hujan</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={styles.card}>
+      <Text style={styles.label}>Pengaturan Notifikasi</Text>
+      <Text style={styles.value}>Aktif</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={styles.card}>
+      <Text style={styles.label}>Sinkronisasi Data</Text>
+      <Text style={styles.value}>Terhubung</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8fafc',
+    padding: 18,
+    gap: 12,
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    padding: 18,
+  },
+  label: {
+    color: '#64748b',
+    fontSize: 13,
+    marginBottom: 6,
+  },
+  value: {
+    color: '#0f172a',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+});
+
+export default SettingsScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

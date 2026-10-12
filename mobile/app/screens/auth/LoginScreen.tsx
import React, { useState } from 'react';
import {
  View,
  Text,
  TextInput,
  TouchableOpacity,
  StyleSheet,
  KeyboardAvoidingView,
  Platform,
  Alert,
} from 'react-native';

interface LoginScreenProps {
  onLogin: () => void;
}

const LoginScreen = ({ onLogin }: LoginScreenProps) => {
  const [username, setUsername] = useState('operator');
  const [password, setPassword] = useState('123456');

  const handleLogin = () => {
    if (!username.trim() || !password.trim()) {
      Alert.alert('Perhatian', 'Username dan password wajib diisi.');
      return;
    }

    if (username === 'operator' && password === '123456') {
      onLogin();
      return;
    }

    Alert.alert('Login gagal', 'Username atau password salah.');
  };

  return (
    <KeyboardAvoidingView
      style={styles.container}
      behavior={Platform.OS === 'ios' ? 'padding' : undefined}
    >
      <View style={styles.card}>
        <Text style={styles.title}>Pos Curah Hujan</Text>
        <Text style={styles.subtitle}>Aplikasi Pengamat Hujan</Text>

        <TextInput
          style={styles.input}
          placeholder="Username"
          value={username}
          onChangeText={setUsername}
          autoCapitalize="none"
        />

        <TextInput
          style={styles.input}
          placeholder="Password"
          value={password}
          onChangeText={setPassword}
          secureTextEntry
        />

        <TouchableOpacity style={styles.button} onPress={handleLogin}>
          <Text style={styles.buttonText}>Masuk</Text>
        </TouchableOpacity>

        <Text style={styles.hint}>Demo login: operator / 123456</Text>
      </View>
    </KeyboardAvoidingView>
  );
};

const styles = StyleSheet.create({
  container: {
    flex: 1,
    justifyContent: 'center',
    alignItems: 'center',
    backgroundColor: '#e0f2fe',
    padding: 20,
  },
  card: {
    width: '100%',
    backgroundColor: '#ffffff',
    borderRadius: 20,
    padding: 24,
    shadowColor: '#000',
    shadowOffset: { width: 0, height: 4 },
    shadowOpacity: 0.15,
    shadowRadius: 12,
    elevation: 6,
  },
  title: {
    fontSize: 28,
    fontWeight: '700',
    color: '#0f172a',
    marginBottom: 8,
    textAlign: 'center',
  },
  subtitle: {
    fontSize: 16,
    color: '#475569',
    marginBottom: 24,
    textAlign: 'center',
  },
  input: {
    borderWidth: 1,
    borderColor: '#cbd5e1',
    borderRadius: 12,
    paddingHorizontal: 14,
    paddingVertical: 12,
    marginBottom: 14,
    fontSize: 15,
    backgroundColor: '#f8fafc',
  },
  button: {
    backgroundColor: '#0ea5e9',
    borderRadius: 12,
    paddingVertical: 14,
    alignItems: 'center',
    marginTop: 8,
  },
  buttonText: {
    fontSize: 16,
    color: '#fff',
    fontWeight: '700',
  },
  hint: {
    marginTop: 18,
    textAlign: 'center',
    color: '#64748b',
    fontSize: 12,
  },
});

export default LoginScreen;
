@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
+import LoginScreen from './mobile/app/screens/auth/LoginScreen';
+import DashboardScreen from './mobile/app/screens/dashboard/DashboardScreen';
+import ObservationScreen from './mobile/app/screens/observation/ObservationScreen';
+import ObservationDetailScreen from './mobile/app/screens/observation/ObservationDetailScreen';
+import ReportsScreen from './mobile/app/screens/reports/ReportsScreen';
+import SettingsScreen from './mobile/app/screens/settings/SettingsScreen';
+import RainfallStationsScreen from './mobile/app/screens/stations/RainfallStationsScreen';
+import ChartAnalysisScreen from './mobile/app/screens/analysis/ChartAnalysisScreen';
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const DashboardStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="DashboardHome"
+      component={DashboardScreen}
+      options={{ title: 'Dashboard' }}
+    />
+    <Stack.Screen
+      name="ChartAnalysis"
+      component={ChartAnalysisScreen}
+      options={{ title: 'Analisis Grafik' }}
+    />
+  </Stack.Navigator>
+);
+
+const ObservationStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="ObservationList"
+      component={ObservationScreen}
+      options={{ title: 'Data Observasi' }}
+    />
+    <Stack.Screen
+      name="ObservationDetail"
+      component={ObservationDetailScreen}
+      options={{ title: 'Detail Observasi' }}
+    />
+  </Stack.Navigator>
+);
+
+const MainTabs = () => (
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ color, size }) => {
+        const iconName =
+          route.name === 'DashboardTab'
+            ? 'home-outline'
+            : route.name === 'ObservationTab'
+            ? 'clipboard-outline'
+            : route.name === 'StationsTab'
+            ? 'location-outline'
+            : route.name === 'ReportsTab'
+            ? 'bar-chart-outline'
+            : 'settings-outline';
+
+        return <Ionicons name={iconName as any} size={size} color={color} />;
+      },
+      tabBarActiveTintColor: '#0f766e',
+      tabBarInactiveTintColor: '#64748b',
+      headerShown: false,
+    })}
+  >
+    <Tab.Screen name="DashboardTab" component={DashboardStack} options={{ title: 'Dashboard' }} />
+    <Tab.Screen name="ObservationTab" component={ObservationStack} options={{ title: 'Observasi' }} />
+    <Tab.Screen name="StationsTab" component={RainfallStationsScreen} options={{ title: 'Pos Hujan' }} />
+    <Tab.Screen name="ReportsTab" component={ReportsScreen} options={{ title: 'Laporan' }} />
+    <Tab.Screen name="SettingsTab" component={SettingsScreen} options={{ title: 'Pengaturan' }} />
+  </Tab.Navigator>
+);
+
+export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  return (
+    <NavigationContainer>
+      {isLoggedIn ? (
+        <MainTabs />
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            options={{ headerShown: false }}
+          >
+            {(props) => <LoginScreen {...props} onLogin={() => setIsLoggedIn(true)} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      )}
+    </NavigationContainer>
+  );
+}

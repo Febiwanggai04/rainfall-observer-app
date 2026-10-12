@@ -1,0 +1,203 @@
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+
+const ObservationDetailScreen = ({ route }: any) => {
+  const { item } = route.params;
+
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.title}>Detail Observasi</Text>
+
+      <View style={styles.card}>
+        <Text style={styles.label}>Pos Hujan</Text>
+        <Text style={styles.value}>{item.station}</Text>
+
+        <Text style={styles.label}>Tanggal</Text>
+        <Text style={styles.value}>{item.date}</Text>
+
+        <Text style={styles.label}>Waktu</Text>
+        <Text style={styles.value}>{item.time}</Text>
+
+        <Text style={styles.label}>Curah Hujan</Text>
+        <Text style={styles.value}>{item.rainfall} mm</Text>
+
+        <Text style={styles.label}>Kondisi Cuaca</Text>
+        <Text style={styles.value}>{item.condition}</Text>
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8fafc',
+  },
+  content: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    marginBottom: 18,
+    color: '#0f172a',
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 18,
+  },
+  label: {
+    color: '#64748b',
+    fontSize: 13,
+    marginTop: 10,
+  },
+  value: {
+    color: '#0f172a',
+    fontSize: 18,
+    fontWeight: '600',
+    marginTop: 4,
+  },
+});
+
+export default ObservationDetailScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

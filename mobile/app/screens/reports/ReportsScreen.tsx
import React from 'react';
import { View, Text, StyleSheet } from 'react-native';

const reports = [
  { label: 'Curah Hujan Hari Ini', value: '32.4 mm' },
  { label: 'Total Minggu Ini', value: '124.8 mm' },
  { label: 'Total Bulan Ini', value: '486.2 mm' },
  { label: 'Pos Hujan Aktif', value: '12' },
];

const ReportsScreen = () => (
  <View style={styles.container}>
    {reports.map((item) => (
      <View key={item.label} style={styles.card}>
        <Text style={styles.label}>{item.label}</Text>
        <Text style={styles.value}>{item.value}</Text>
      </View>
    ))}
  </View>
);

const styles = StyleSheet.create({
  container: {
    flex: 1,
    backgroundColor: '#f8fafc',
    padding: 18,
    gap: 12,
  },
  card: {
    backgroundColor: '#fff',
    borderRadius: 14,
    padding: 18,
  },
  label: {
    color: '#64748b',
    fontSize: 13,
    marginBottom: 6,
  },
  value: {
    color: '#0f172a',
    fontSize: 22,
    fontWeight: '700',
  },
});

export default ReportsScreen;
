@@ -1,0 +1,167 @@
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+
+const chartData = [
+  { day: 'Sen', value: 12 },
+  { day: 'Sel', value: 19 },
+  { day: 'Rab', value: 11 },
+  { day: 'Kam', value: 28 },
+  { day: 'Jum', value: 34 },
+  { day: 'Sab', value: 22 },
+  { day: 'Min', value: 16 },
+];
+
+const ChartAnalysisScreen = () => (
+  <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <Text style={styles.title}>Analisis Curah Hujan</Text>
+    <View style={styles.chartBox}>
+      {chartData.map((item) => (
+        <View key={item.day} style={styles.barGroup}>
+          <View style={[styles.bar, { height: item.value * 4 }]} />
+          <Text style={styles.barLabel}>{item.day}</Text>
+        </View>
+      ))}
+    </View>
+
+    <View style={styles.summaryCard}>
+      <Text style={styles.summaryTitle}>Ringkasan</Text>
+      <Text style={styles.summaryText}>Rata-rata hujan minggu ini: 20.3 mm</Text>
+      <Text style={styles.summaryText}>Hujan tertinggi: 34 mm pada hari Jumat</Text>
+      <Text style={styles.summaryText}>Catatan: Kondisi hujan menurun di akhir pekan</Text>
+    </View>
+  </ScrollView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8fafc',
+  },
+  content: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    marginBottom: 18,
+    color: '#0f172a',
+  },
+  chartBox: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    minHeight: 220,
+    marginBottom: 18,
+  },
+  barGroup: {
+    alignItems: 'center',
+    width: 34,
+  },
+  bar: {
+    width: 18,
+    backgroundColor: '#0ea5e9',
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  barLabel: {
+    fontSize: 11,
+    color: '#475569',
+  },
+  summaryCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 18,
+  },
+  summaryTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 10,
+  },
+  summaryText: {
+    color: '#475569',
+    fontSize: 14,
+    marginBottom: 6,
+  },
+});
+
+export default ChartAnalysisScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
