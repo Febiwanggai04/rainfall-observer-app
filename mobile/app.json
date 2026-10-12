@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Rainfall Observer",
+    "slug": "rainfall-observer",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.rainfall.observer"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.rainfall.observer"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "rainfall-observer",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ]
+  }
+}
